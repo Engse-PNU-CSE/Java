@@ -50,20 +50,20 @@ public class Test_ch10_LottoWinningProcess {
 	static int salesLotto() {
 
 		Random number = new Random();
-		int count = 100 + number.nextInt(100000);
+		int count = 100000 + number.nextInt(100000);
 		return count;
 	}
 	
 	public static void lottoyPrize(int[] wincount, int count) {
-		DecimalFormat dc = new DecimalFormat("###,###,###,###");
-		int totalSales = count * 1000;
+		DecimalFormat dc = new DecimalFormat("###,###,###,###,###");
+		int totalSales = count * 100000;
 		int totalPrize = totalSales / 2;
 		System.out.println("총 판매금액 : " + dc.format(totalSales) + " 원");
 		System.out.println("총 상금 : " + dc.format(totalPrize) + " 원");
 		for(int i=1; i < 6; i++) System.out.println(i + "등 당첨자 수 : " + wincount[i]);
 		int prize5 = 5000*wincount[5];
 		int prize4 = 50000*wincount[4];
-		int prize3 = (count*500) - prize5 - prize4;
+		int prize3 = totalPrize - prize5 - prize4;
 		int prize2 = prize3;
 		int prize1 = 6 * prize3;
 		System.out.println("=============================");
@@ -102,7 +102,7 @@ public class Test_ch10_LottoWinningProcess {
 			lot.add(lotto);
 
 		}
-		System.out.println("\nlot hashset을 출력\n");
+	//	System.out.println("\nlot hashset을 출력\n");
 		for (HashSet<Integer> eachLotto : lot) {
 			/*
 			 * 33 1 17 22 6 8 + 보너스번호: 12 0 1 18 38 6 24 + 보너스번호: 29
@@ -114,6 +114,7 @@ public class Test_ch10_LottoWinningProcess {
 			//for(int i = 0; i < LL.size()-1; i++) System.out.print(LL.get(i) + " ");
 			
 		}
+		System.out.println("al : " + al.size());
 		//System.out.println("\n복권 정렬전::lot = " + al);
 //
 //		al.sort(new ListComparator());
@@ -122,32 +123,38 @@ public class Test_ch10_LottoWinningProcess {
 //		// hashset를 arrayList로 변환
 //		// 당첨번호 추첨
 		HashSet<Integer> win = new HashSet<>();
-		while(win.size() < 7) {// 6개 번호와 보너스 번호
+		while(win.size() < 6) {// 6개 번호와 보너스 번호
 			win.add(number.nextInt(45)+1);
 		}
-		System.out.print("\n당첨번호: " + win);// 6개의 당첨번호와 보너스번호
+		List<Integer> L = new ArrayList<Integer>(win);
+		Collections.sort(L);
+		System.out.print("당첨번호: " + L);// 6개의 당첨번호와 보너스번호
+		int bouns = number.nextInt(45)+1;
+		System.out.print(" 보너스 번호 : " + bouns);
 //		// 6개를 맞힌 복권을 찾는다
 		System.out.println();
-		winnerLotto(win, al);// 1등을 찾는다
+		winnerLotto(win, al, bouns);// 1등을 찾는다
 
 	}
 
-	static void winnerLotto(HashSet<Integer> w, List<List<Integer>> al) {
+	static void winnerLotto(HashSet<Integer> w, List<List<Integer>> al, int bonus) {
 		// 당첨번호 w에 대하여 발행된 복권 리스트 al의 모든 원소 elem에 대하여 조사한다
 		int countWins[] = {0, 0 , 0, 0, 0, 0};
 		for (int i = 0; i < al.size(); i++) {
-			countWins[checkWinner(w, al.get(i))]++;
+			countWins[checkWinner(w, al.get(i), bonus)]++;
 		}
 		lottoyPrize(countWins, al.size());
 	}
 
-	static int checkWinner(HashSet<Integer> w, List<Integer> elem) {
+	static int checkWinner(HashSet<Integer> w, List<Integer> elem, int bonus) {
 		// 당첨번호 w의 각 숫자를 꺼내 복권 엔트리에 포함되어 있는지를 조사
 		List<Integer> L = new ArrayList<>(w);
 		int count = 0;
 		/*
 		 * 당첨번호 각 번호를 몇개 포함하는지를 elem에 대하여 조사
 		 */
+		boolean check = false;
+		if(elem.contains(bonus)) check=true;
 		elem.retainAll(L);
 		count = elem.size();
 		// 구현할 부분
@@ -168,15 +175,15 @@ public class Test_ch10_LottoWinningProcess {
 //			System.out.println("4등 복권 " + elem + " 당첨번호:" + w);
 			return 4;
 		case 5:
-			if (L.get(5).equals(elem.get(5))) { // 보너스 번호가 일치하는 지를 조사
-				System.out.println("2등 복권 " + elem + " 당첨번호:" + w);
+			if (check) { // 보너스 번호가 일치하는 지를 조사
+				System.out.println("2등 복권 " + elem + " + " + bonus + " 당첨번호:" + w + "보너스 번호:[" + bonus + "]");
 				return 2;
 			} else {
-				System.out.println("3등 복권 " + elem + " 당첨번호:" + w);
+				System.out.println("3등 복권 " + elem + " 당첨번호:" + w + "보너스 번호:[" + bonus + "]");
 				return 3;
 			}
 		case 6:
-			System.out.println("1등 복권 " + elem + " 당첨번호:" + w);
+			System.out.println("1등 복권 " + elem + " 당첨번호:" + w + "보너스 번호:[" + bonus + "]");
 			return 1;
 		}
 		return 0;
