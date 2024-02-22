@@ -17,7 +17,6 @@ public class Test16 {
 		System.out.println(Arrays.toString(score2));
 		System.out.println(Arrays.toString(score3));
 		System.out.println(Arrays.toString(score4));
-
 		System.out.println(Arrays.equals(score, score2));
 
 		Arrays.sort(score);

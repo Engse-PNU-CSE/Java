@@ -2,7 +2,7 @@ package com.ruby.java.homework;
 
 import java.util.Scanner;
 
-public class TheNumberOfCases {  
+public class TheNumberOfCases {
 
 	public static int[] usedWeight = {0, 0, 0};
 	public static int[] valueWeight = new int[3];

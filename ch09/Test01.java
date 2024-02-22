@@ -16,7 +16,7 @@ public class Test01 {
 		System.out.println(Integer.toHexString(obj1.hashCode()));
 		System.out.println(obj2.hashCode());
 		System.out.println(obj3.hashCode());
-
+		
 		Class c = obj1.getClass();
 		System.out.println(c.getName());
 

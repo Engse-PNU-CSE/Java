@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class Test12 {
 	static void showData(String[]arr) {
-		System.out.println();
+		System.out.println();	
 		for (String st: arr)
 			System.out.print(st + " -> ");
 	}
@@ -23,7 +23,7 @@ public class Test12 {
 	}
 	public static void main(String[] args) {
 		// string 정렬의 문제 
-		String arr[] = {"12", "9", "22", "5"};
+		String arr[] = {"12", "29", "1322", "25"};
 		showData(arr);
 		Arrays.sort(arr);
 		showData(arr);

@@ -37,10 +37,10 @@ public class Test02 {
 		} else {
 			System.out.println("s1 != s2::다른 문자열을 가집니다.");
 		}
-		if (s1 == s2) {//Object의 equal()를 overriding - hash code가 아닌 값으로 비교하도록 String class에서 재정의한 것
-			System.out.println("s1 ==s2 ::동일 문자열을 가집니다.");
+		if (s1 == s3) {//Object의 equal()를 overriding - hash code가 아닌 값으로 비교하도록 String class에서 재정의한 것
+			System.out.println("s1 ==s3 ::동일 문자열을 가집니다.");
 		} else {
-			System.out.println("s1 != s2::다른 문자열을 가집니다.");
+			System.out.println("s1 != s3::다른 문자열을 가집니다.");
 		}
 		if (s2 == s4) {//Object의 equal()를 overriding - hash code가 아닌 값으로 비교하도록 String class에서 재정의한 것
 			System.out.println("s2 == s4 ::동일 문자열을 가집니다.");
@@ -57,7 +57,12 @@ public class Test02 {
 		} else {
 			System.out.println("s1.equals(s4)::다른 문자열을 가집니다.");
 		}
-
+		if (s1.equals(s3)) {
+			System.out.println("s1.equals(s3)::동일 문자열을 가집니다.");
+		} else {
+			System.out.println("s1.equals(s3)::다른 문자열을 가집니다.");
+		}
+		
 		System.out.println("s1 = " + s1 + ", s2 = " + s2);
 		String s5 = "JAVA";
 

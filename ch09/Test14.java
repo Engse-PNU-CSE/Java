@@ -11,11 +11,13 @@ public class Test14 {
 		while (st1.hasMoreTokens()) {
 			System.out.print(st1.nextToken() + " + " );
 		}
+		System.out.println("\n아무조건이 없으면 공백을 기준으로 토큰을 나누기 때문에 특수문자가 포함");
 		StringTokenizer st11 = new StringTokenizer(msg, ",. ");
 		System.out.println("단어 수 : " + st11.countTokens());
 		while (st11.hasMoreTokens()) {
 			System.out.print(st11.nextToken() + " + " );
 		}
+		System.out.println("\n,과 .을 추가적으로 토큰구분자로 사용하여 분류");
 		System.out.println("\n================");
 		String s = "id=guest&name=Amy&pwd=1004";
 		StringTokenizer st2 = new StringTokenizer(s, "&");
