@@ -50,7 +50,7 @@ public class Test_ch10_LottoWinningProcess {
 	static int salesLotto() {
 
 		Random number = new Random();
-		int count = 100000 + number.nextInt(100000);
+		int count = 1000000 + number.nextInt(100000);
 		return count;
 	}
 	
@@ -63,7 +63,7 @@ public class Test_ch10_LottoWinningProcess {
 		for(int i=1; i < 6; i++) System.out.println(i + "등 당첨자 수 : " + wincount[i]);
 		int prize5 = 5000*wincount[5];
 		int prize4 = 50000*wincount[4];
-		long prize3 = totalPrize - prize5 - prize4;
+		long prize3 = (totalPrize - prize5 - prize4)/8;
 		long prize2 = prize3;
 		long prize1 = 6 * prize3;
 		System.out.println("=============================");
@@ -72,10 +72,10 @@ public class Test_ch10_LottoWinningProcess {
 		else System.out.println("1인당 당첨 금액 : " + dc.format(prize1/wincount[1]));
 		System.out.println("2등 총 당첨 금액 : " + dc.format(prize2) + " 원");
 		if(wincount[2] == 0) System.out.println("당첨자가 없습니다.");
-		else System.out.println("1인당 당첨 금액 : " + dc.format(prize1/wincount[2]));
+		else System.out.println("1인당 당첨 금액 : " + dc.format(prize2/wincount[2]));
 		System.out.println("3등 총 당첨 금액 : " + dc.format(prize3) + " 원");
 		if(wincount[3] == 0) System.out.println("당첨자가 없습니다.");
-		else System.out.println("1인당 당첨 금액 : " + dc.format(prize1/wincount[3]));
+		else System.out.println("1인당 당첨 금액 : " + dc.format(prize3/wincount[3]));
 		System.out.println("4등 총 당첨 금액 : " + dc.format(prize4) + " 원");
 		System.out.println("당첨 금액 : 50,000 원");
 		System.out.println("5등 총 당첨 금액 : " + dc.format(prize5) + " 원");
