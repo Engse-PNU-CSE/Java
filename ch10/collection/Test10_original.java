@@ -15,8 +15,8 @@ public static void lotto_generator(int n) {
 	HashSet<Integer> lotto = null;
 	for (int i = 0; i < n; i++) {
 		lotto = new HashSet<Integer>();
-		for (int j = 0; lotto.size() <= 6; j++) {
-			lotto.add(number.nextInt(46));
+		while(lotto.size() <= 6) {
+			lotto.add(number.nextInt(45)+1);
 			System.out.println("lotto_size = " + lotto.size());
 		}
 		List<Integer> L = new ArrayList<Integer>(lotto);
