@@ -18,7 +18,7 @@ public class Test07 {
 		dic.put(null, null); // HashMap은 null 값 저장 가능
 
 // 방법1 -iterator 사용
-		System.out.println("\n방법1:");
+		System.out.println("\n방법1:" + dic.keySet());
 		Iterator<String> keys = dic.keySet().iterator();
 		while (keys.hasNext()) {
 			String key = keys.next();

@@ -20,7 +20,7 @@ public static void lotto_generator(int n) {
 			System.out.println("lotto_size = " + lotto.size());
 		}
 		List<Integer> L = new ArrayList<Integer>(lotto);
-		Collections.sort(L);;
+		Collections.sort(L);
 		System.out.println(L);
 	}
 }
