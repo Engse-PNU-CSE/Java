@@ -56,16 +56,16 @@ public class Test_ch10_LottoWinningProcess {
 	
 	public static void lottoyPrize(int[] wincount, int count) {
 		DecimalFormat dc = new DecimalFormat("###,###,###,###,###");
-		int totalSales = count * 100000;
-		int totalPrize = totalSales / 2;
+		long totalSales = (long)count * 10000;
+		long totalPrize = totalSales / 2;
 		System.out.println("총 판매금액 : " + dc.format(totalSales) + " 원");
 		System.out.println("총 상금 : " + dc.format(totalPrize) + " 원");
 		for(int i=1; i < 6; i++) System.out.println(i + "등 당첨자 수 : " + wincount[i]);
 		int prize5 = 5000*wincount[5];
 		int prize4 = 50000*wincount[4];
-		int prize3 = totalPrize - prize5 - prize4;
-		int prize2 = prize3;
-		int prize1 = 6 * prize3;
+		long prize3 = totalPrize - prize5 - prize4;
+		long prize2 = prize3;
+		long prize1 = 6 * prize3;
 		System.out.println("=============================");
 		System.out.println("1등 총 당첨 금액 : " + dc.format(prize1) + " 원");
 		if(wincount[1] == 0) System.out.println("당첨자가 없습니다.");
@@ -114,7 +114,6 @@ public class Test_ch10_LottoWinningProcess {
 			//for(int i = 0; i < LL.size()-1; i++) System.out.print(LL.get(i) + " ");
 			
 		}
-		System.out.println("al : " + al.size());
 		//System.out.println("\n복권 정렬전::lot = " + al);
 //
 //		al.sort(new ListComparator());
