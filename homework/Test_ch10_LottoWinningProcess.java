@@ -50,13 +50,13 @@ public class Test_ch10_LottoWinningProcess {
 	static int salesLotto() {
 
 		Random number = new Random();
-		int count = 1000000 + number.nextInt(100000);
+		int count = 3000000 + number.nextInt(100000);
 		return count;
 	}
 	
 	public static void lottoyPrize(int[] wincount, int count) {
 		DecimalFormat dc = new DecimalFormat("###,###,###,###,###");
-		long totalSales = (long)count * 10000;
+		long totalSales = (long)count * 1000;
 		long totalPrize = totalSales / 2;
 		System.out.println("총 판매금액 : " + dc.format(totalSales) + " 원");
 		System.out.println("총 상금 : " + dc.format(totalPrize) + " 원");
