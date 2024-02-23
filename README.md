@@ -1,7 +1,7 @@
 # Java
  Java Programming with EclipseIDE
  
-  ![Static Badge](https://img.shields.io/badge/%20-JAVA-2C2255?logo=OpenJDK)
+  ![Static Badge](https://img.shields.io/badge/%20-JAVA-2C2255?logo=OpenJDK)  ![Static Badge](https://img.shields.io/badge/-Eclipse%20IDE-2C2255?logo=eclipseide)
 
   # What did I study?
  - Establishment of Java Introduction and Development Environment
