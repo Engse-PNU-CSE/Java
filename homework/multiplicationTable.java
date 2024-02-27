@@ -1,9 +1,7 @@
 package com.ruby.java.homework;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class multiplicationTable {
+	private final int MAXRANGE_J = 9;
 
 	public void print(int number) {
 		System.out.println(number + "단 출력");
@@ -24,15 +22,16 @@ public class multiplicationTable {
 		int startJ = 2;
 
 		while (startJ < 10) {
-			int endJ = col + startJ;
+			int endJ = col + startJ - 1;
+			System.out.println("----------------".repeat(col));
 			for (int i = 1; i < 10; i++) {
-				if(endJ>10) endJ--;
-				for (int j = startJ; j < endJ; j++)
+				if(endJ>9) endJ=MAXRANGE_J;
+				for (int j = startJ; j <= endJ; j++)
 					System.out.print(j + " * " + i + " = " + i * j + "\t");
 				System.out.println();
 			}
-			startJ += 3;
-			System.out.println();
+			startJ += col;
 		}
+		System.out.println("----------------".repeat(col));
 	}
 }

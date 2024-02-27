@@ -11,6 +11,6 @@ public class multiplicationTableTest {
 
 		//table.print(num);
 		//table.printHorizental();
-		table.printColoum(3);
+		table.printColoum(2);
 	}
 }
