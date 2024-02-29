@@ -5,20 +5,14 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int max = 0;
-		int index_i=0, index_j=0;
-		for(int i = 0; i < 9; i++) {
-			for(int j = 0; j < 9; j ++) {
-				int n = sc.nextInt();
-				if(max < n) {
-					max = n;
-					index_i = i+1;
-					index_j = j+1;
-				}
-			}
+		String s = sc.next();
+		int n = sc.nextInt();
+		int num[] = new int[s.length()];
+		for(int i = 0; i < s.length(); i++) {
+			char c=s.charAt(i);
+			num[i]=(int)c - 55;
 		}
-		System.out.println(max);
-		System.out.println(index_i + " " + index_j);
+		
 		sc.close();
 	}
 }
